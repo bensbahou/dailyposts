@@ -1,4 +1,3 @@
-import JSON5 from "json5"
 import type { Page } from "puppeteer-core/lib/esm/puppeteer"
 
 import { CHATGPT_SELECTORS } from "~constants/selectors"

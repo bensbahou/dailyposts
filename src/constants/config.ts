@@ -1,0 +1,3 @@
+export const NUMBER_OF_POSTS = 5
+
+export const SLEEP_TIME_AFTER_POST_CREATION = 6000

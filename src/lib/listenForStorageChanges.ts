@@ -1,12 +1,12 @@
-import { useBearStore } from "~stores/useBearStore"
+import { usePromptsStore } from "~stores/usePromptsStore"
 
 export const listenForStorageChanges = () => {
   chrome.storage.onChanged.addListener((changes, namespace) => {
     console.log("changes", changes, "namespace", namespace)
     if (namespace === "local") {
-      if (changes.useBearStore) {
-        console.log("Bear store changed!")
-        useBearStore.setState(changes.useBearStore.newValue.state)
+      if (changes.usePromptsStore) {
+        console.log("Prompts store changed!")
+        usePromptsStore.setState(changes.usePromptsStore.newValue.state)
       }
     }
   })

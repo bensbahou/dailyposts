@@ -1,8 +1,8 @@
 {
-  "name": "plasmo-shadcn-extension",
-  "displayName": "Plasmo Shadcn Extension",
+  "name": "dailyposts",
+  "displayName": "Daily Posts",
   "version": "0.0.1",
-  "description": "Plasmo Shadcn Extension",
+  "description": "Daily Posts",
   "author": "https://www.fiverr.com/bensbahou",
   "scripts": {
     "dev": "plasmo dev",
@@ -15,6 +15,7 @@
     "clsx": "^2.1.1",
     "lucide-react": "^0.456.0",
     "plasmo": "0.89.4",
+    "puppeteer-core": "^23.9.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "tailwind-merge": "^2.5.4",
@@ -34,7 +35,15 @@
   },
   "manifest": {
     "host_permissions": [
-      "https://*/*"
+      "https://chatgpt.com/*"
+    ],
+    "permissions": [
+      "storage",
+      "alarms",
+      "tabs",
+      "scripting",
+      "debugger",
+      "activeTab"
     ]
   }
 }

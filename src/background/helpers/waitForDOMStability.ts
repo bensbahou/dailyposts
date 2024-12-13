@@ -1,7 +1,7 @@
 export const waitForDOMStability = (
   page: any,
   timeoutMs: number = 300000,
-  stabilityMs: number = 1000
+  stabilityMs: number = 5000
 ) => {
   return page.evaluate(
     ({ timeoutMs, stabilityMs }) => {

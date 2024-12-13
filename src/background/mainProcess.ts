@@ -22,7 +22,9 @@ export const mainProcess = async () => {
     return
   }
   const { tabId, page } = createBrowserResult
-
+  /* const article = await parseLastPost(page)
+  console.log("Article parsed", article)
+  return */
   await clickSearchButton(page)
   await generateHeadlines(page)
   await waitForDOMStability(page)
@@ -30,10 +32,10 @@ export const mainProcess = async () => {
   const articles: Article[] = []
   for (const headline of headlines.slice(0, NUMBER_OF_POSTS)) {
     await waitForDOMStability(page)
-    await sleep(3000)
+    //await sleep(3000)
     await generateArticle(page, headline)
     await waitForDOMStability(page)
-    await sleep(3000)
+    //await sleep(3000)
 
     const article = await parseLastPost(page)
     if (!article || !article.headline || !article.article) {
@@ -51,7 +53,7 @@ export const mainProcess = async () => {
 
   console.log("done")
   try {
-    //await chrome.tabs.remove(tabId)
+    await chrome.tabs.remove(tabId)
   } catch (error) {
     console.error("Error during cleanup:", error)
   }

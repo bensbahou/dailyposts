@@ -16,7 +16,17 @@ export const pasteContent = async (
   await page.evaluate(
     (content: string, selector: string) => {
       const dataTransfer = new DataTransfer()
-      dataTransfer.setData("text/plain", content)
+
+      // Convert \n to actual line breaks if they exist as characters
+      const normalizedContent = content.replace(/\\n/g, "\n")
+
+      // Set both plain text and HTML format to preserve formatting
+      dataTransfer.setData("text/plain", normalizedContent)
+      dataTransfer.setData(
+        "text/html",
+        normalizedContent.replace(/\n/g, "<br>")
+      )
+
       const pasteEvent = new ClipboardEvent("paste", {
         clipboardData: dataTransfer,
         bubbles: true,
